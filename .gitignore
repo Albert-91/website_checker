@@ -216,3 +216,6 @@ dmypy.json
 # html files to compare
 content_to_compare.html
 original_content.html
+
+# file with credentials
+env.py
