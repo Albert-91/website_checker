@@ -31,7 +31,7 @@ def create_msg(email_to):
     msg['From'] = EMAIL_FROM
     msg['Subject'] = EMAIL_SUBJECT
     msg['To'] = email_to
-    message = read_template(Path('email_sender/email_template.html'))
+    message = read_template(Path('email_sender/email_to_send.html'))
     msg.attach(MIMEText(message.template, 'html'))
     return msg
 

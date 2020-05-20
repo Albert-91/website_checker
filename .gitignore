@@ -219,3 +219,6 @@ original_content.html
 
 # file with credentials
 env.py
+
+# html to send
+email_sender/email_to_send.html
