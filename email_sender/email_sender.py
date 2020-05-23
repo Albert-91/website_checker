@@ -17,9 +17,8 @@ def send_email(template_file: Text):
         s.starttls()
         s.login(SMTP_LOGIN, SMTP_PASSWORD)
         for email in EMAIL_ADDRESSES:
-            msg = create_msg(email)
+            msg = create_msg(email, template_file)
             s.send_message(msg)
-            del msg
             logger.debug("E-mail sent.")
     except Exception as e:
         logger.error(e)
@@ -27,12 +26,12 @@ def send_email(template_file: Text):
         s.quit()
 
 
-def create_msg(email_to):
+def create_msg(email_to: Text, template_file: Text) -> MIMEMultipart:
     msg = MIMEMultipart()
     msg['From'] = EMAIL_FROM
     msg['Subject'] = EMAIL_SUBJECT
     msg['To'] = email_to
-    message = read_template(Path('email_sender/email_to_send.html'))
+    message = read_template(Path(template_file))
     msg.attach(MIMEText(message.template, 'html'))
     return msg
 

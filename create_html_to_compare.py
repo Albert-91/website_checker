@@ -3,7 +3,7 @@ import logging
 import requests
 from requests.exceptions import MissingSchema
 
-from settings import URL, ORIGINAL_FILE
+from settings import URL, ORIGINAL_FILE_NAME
 
 logger = logging.getLogger(__name__)
 
@@ -24,4 +24,4 @@ def get_html_content(url):
 
 
 if __name__ == '__main__':
-    download_html_to_file(ORIGINAL_FILE)
+    download_html_to_file(ORIGINAL_FILE_NAME)
