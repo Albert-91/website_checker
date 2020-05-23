@@ -4,13 +4,14 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 from string import Template
+from typing import Text, Union
 
 from settings import EMAIL_ADDRESSES, EMAIL_FROM, EMAIL_SUBJECT, SMTP_HOST, SMTP_PASSWORD, SMTP_PORT, SMTP_LOGIN
 
 logger = logging.getLogger(__name__)
 
 
-def send_email():
+def send_email(template_file: Text):
     try:
         s = smtplib.SMTP(host=SMTP_HOST, port=SMTP_PORT)
         s.starttls()
@@ -36,7 +37,7 @@ def create_msg(email_to):
     return msg
 
 
-def read_template(filename):
+def read_template(filename: Union[Text, Path]) -> Template:
     """
     Returns a Template object comprising the contents of the
     file specified by filename.
