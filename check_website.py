@@ -10,14 +10,14 @@ from settings import (
     CHECKING_ON_PHRASES_ENABLED,
     CHECKING_ON_DIFFS_EMAIL_TEMPLATE,
     CHECKING_ON_PHRASES_EMAIL_TEMPLATE,
-    CHECKING_ON_PHRASES_PHRASES
+    CHECKING_ON_PHRASES_PHRASES, URL
 )
 
 logger = logging.getLogger(__name__)
 
 
 def check_website():
-    download_html_to_file(FILE_TO_COMPARE_NAME)
+    download_html_to_file(URL, FILE_TO_COMPARE_NAME)
     if CHECKING_ON_DIFFS_ENABLED:
         try:
             if not filecmp.cmp(ORIGINAL_FILE_NAME, FILE_TO_COMPARE_NAME, shallow=True):

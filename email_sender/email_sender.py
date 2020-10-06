@@ -19,7 +19,7 @@ def send_email(template_file: Text):
         for email in EMAIL_ADDRESSES:
             msg = create_msg(email, template_file)
             s.send_message(msg)
-            logger.debug("E-mail sent.")
+            logger.debug("E-mail from %s was sent to %s." % (SMTP_HOST, email))
     except Exception as e:
         logger.error(e)
     finally:

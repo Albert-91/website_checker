@@ -27,4 +27,4 @@ changes then e-mail is sending to recipient from settings or env file.
     SMTP_PASSWORD = 'password'
     ```
 1. Create your own copy of email template with name `email_to_send.html`
-1. Run scrpit `check_website.py` to check differences in HTML files.
+1. Run script `check_website.py` to check differences in HTML files.
